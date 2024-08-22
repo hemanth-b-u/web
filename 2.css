@@ -1,91 +1,189 @@
-body {
-    font-family: Arial, sans-serif;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-header {
-    background-color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-header .logo h1 {
-    color: #4CAF50;
-    font-size: 24px;
-    margin: 0;
-}
-
-header nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-header nav ul li {
-    margin-left: 20px;
-}
-
-header nav ul li a {
-    text-decoration: none;
+/* Body Styling */
+body {
+    background-color: #f3f3f3;
     color: #333;
-    font-size: 16px;
+    line-height: 1.6;
+    overflow: hidden; /* Prevent scrollbars for the fixed background */
 }
 
-header nav ul li a:hover {
-    color: #4CAF50;
-}
-
+/* Hero Section */
 .hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 100px 50px;
-    background: linear-gradient(to right, #00c6ff, #0072ff);
-    color: #fff;
+    color: #050505;
+    padding: 100px 20px;
+    text-align: center;
 }
 
-.hero-text {
-    max-width: 50%;
-}
-
-.hero-text h1 {
-    font-size: 48px;
+.hero h1 {
+    font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
-.hero-text p {
-    font-size: 20px;
-    margin-bottom: 30px;
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
 }
 
-.hero-text button {
-    background-color: #4CAF50;
-    border: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    color: #fff;
-    cursor: pointer;
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container input {
+    padding: 10px;
+    margin-right: 10px;
     border-radius: 5px;
+    border: none;
+    width: 150px;
 }
 
-.hero-text button:hover {
-    background-color: #45a049;
-}
-
-.hero-image img {
-    max-width: 100%;
-    height: auto;
-}
-
-footer {
-    background-color: #333;
+.search-container .arrow {
+    margin: 0 10px;
+    font-size: 1.5rem;
     color: #fff;
-    text-align: center;
-    padding: 20px 0;
 }
+
+.hire-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hire-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Freelancers Section */
+.freelancers {
+    display: flex;
+    overflow: hidden; /* Hide the overflow to only show the visible part */
+    white-space: nowrap; /* Prevent wrapping of the content */
+    padding: 20px;
+    gap: 20px; /* Space between cards */
+    animation: scroll-left 20s linear infinite; /* Continuous scrolling */
+    position: relative;
+}
+
+/* Make the content repeat */
+.freelancers::before,
+.freelancers::after {
+    content: '';
+    display: block;
+    flex: 0 0 auto; /* Prevent shrinking and growing */
+    width: 300px; /* Match the width of the cards */
+}
+
+.freelancer-card {
+    flex: 0 0 auto; /* Prevent shrinking and growing */
+    width: 300px; /* Adjust width as needed */
+    background: #fff; /* Background color for cards */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    padding: 10px;
+    text-align: center;
+}
+
+.freelancer-image {
+    width: 100%; /* Set the width to fill the container */
+    height: 200px; /* Set a fixed height for the images */
+    object-fit: cover; /* Ensure the image covers the entire area, cropping if necessary */
+    border-radius: 8px 8px 0 0; /* Rounded top corners */
+    margin-bottom: 15px;
+}
+
+.rating {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #ffd700;
+}
+
+/* Keyframe animation to scroll left */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%); /* Start position off screen */
+    }
+    100% {
+        transform: translateX(-100%); /* End position off screen */
+    }
+}
+
+/* Background Video */
+.background-video {
+    position: fixed; /* Fix the video to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width of the viewport */
+    height: 100%; /* Full height of the viewport */
+    object-fit: cover; /* Cover the viewport while maintaining aspect ratio */
+    z-index: -1; /* Place the video behind other content */
+}
+
+/* Content Styling */
+.content {
+    position: relative;
+    z-index: 1; /* Place content above the video */
+    color: white; /* Adjust text color for better visibility */
+    text-align: center;
+    padding: 20px;
+}
+/* Freelancers Section */
+.freelancers {
+    display: flex;
+    overflow: hidden; /* Hide the overflow to only show the visible part */
+    white-space: nowrap; /* Prevent wrapping of the content */
+    padding: 20px;
+    gap: 20px; /* Space between cards */
+    animation: scroll-left 20s linear infinite; /* Continuous scrolling */
+    position: relative;
+    width: 100%; /* Ensure the container takes full width */
+}
+
+/* Make the content repeat */
+.freelancers::before,
+.freelancers::after {
+    content: '';
+    display: block;
+    flex: 0 0 auto; /* Prevent shrinking and growing */
+    width: 300px; /* Match the width of the cards */
+}
+
+.freelancer-card {
+    flex: 0 0 auto; /* Prevent shrinking and growing */
+    width: 300px; /* Adjust width as needed */
+    background: #fff; /* Background color for cards */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    padding: 10px;
+    text-align: center;
+}
+
+.freelancer-image {
+    width: 100%; /* Set the width to fill the container */
+    height: 200px; /* Set a fixed height for the images */
+    object-fit: cover; /* Ensure the image covers the entire area, cropping if necessary */
+    border-radius: 8px 8px 0 0; /* Rounded top corners */
+    margin-bottom: 15px;
+}
+
+/* Keyframe animation to scroll left */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%); /* Start position off screen */
+    }
+    100% {
+        transform: translateX(-100%); /* End position off screen */
+    }
+}
+Z
